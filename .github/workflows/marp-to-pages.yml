@@ -30,7 +30,7 @@ jobs:
       - name: Marp Build (README)
         uses: docker://marpteam/marp-cli:v3.0.2
         with:
-          args: README.md -o build/index.html
+          args: README.md -o build/index.html --html
         env:
           MARP_USER: root:root
 
@@ -56,7 +56,7 @@ jobs:
         if: steps.deck-folder-exists.outputs.has_deck == '0'
         uses: docker://marpteam/marp-cli:v3.0.2
         with:
-          args: -I deck/ -o build/deck/
+          args: -I deck/ -o build/deck/ --html
         env:
           MARP_USER: root:root
 
